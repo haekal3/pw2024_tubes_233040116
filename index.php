@@ -1,6 +1,6 @@
 <?php
 require 'functions.php';
-$berita_musik = query("SELECT * FROM berita");
+$berita_musik = query("SELECT * FROM musik_news");
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $berita_musik = query("SELECT * FROM berita");
 <body>
     <h1>Daftar Berita Musik</h1>
 
-    <a href="tambah.php">Tambah Berita</a>
+    <a href="">Tambah Berita</a>
     <br>
     <br>
     <table border="1" cellpadding="10" cellspacing="0">
@@ -22,7 +22,7 @@ $berita_musik = query("SELECT * FROM berita");
             <th>Judul</th>
             <th>Jurnalis</th>
             <th>Hari & Tanggal</th>
-            <th>Isi</th>
+            <th>Konten</th>
             <th>Gambar</th>
             <th>Aksi</th>
         </tr>
@@ -31,10 +31,10 @@ $berita_musik = query("SELECT * FROM berita");
         <?php foreach($berita_musik as $row) : ?>
         <tr>
             <td><?php echo $i; ?></td>
-            <td><?php echo $row["judul"]; ?></td>
+            <td><?php echo $row["judul_news"]; ?></td>
             <td><?php echo $row["jurnalis"]; ?></td>
-            <td><?php echo $row["hari & tanggal"]; ?></td>
-            <td><?php echo $row["isi"]; ?></td>
+            <td><?php echo $row["hari_tanggal"]; ?></td>
+            <td><?php echo $row["konten_news"]; ?></td>
             <td><img src="img/<?php echo $row["gambar"]; ?>" width="100"></td>
             <td>
                 <a href="">ubah</a> |
@@ -44,5 +44,12 @@ $berita_musik = query("SELECT * FROM berita");
         <?php $i++; ?>
         <?php endforeach;?>
     </table>
+
+    <div class="pagination">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">...</a>
+        </div>
 </body>
 </html>

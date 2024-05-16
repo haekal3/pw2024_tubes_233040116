@@ -12,19 +12,4 @@ function query($query) {
     }
     return $rows;
 }
-// Form tambah data
-function tambah($data) {
-    global $koneksi;
-
-    $judul = $data['judul'];
-    $jurnalis = $data['jurnalis'];
-    $haritanggal = $data['haritanggal'];
-    $isi = $data['isi'];
-    $gambar = $data['gambar'];
-
-    $query = "INSERT INTO berita VALUES (null, '$judul', '$jurnalis', '$haritanggal', '$isi', '$gambar')";
-    mysqli_query($koneksi, $query);
-    echo mysqli_error($koneksi);
-    return mysqli_affected_rows($koneksi);
-}
 ?>
