@@ -1,8 +1,3 @@
-<?php
-require 'functions.php';
-$berita_musik = query("SELECT * FROM musik_news");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,61 +5,59 @@ $berita_musik = query("SELECT * FROM musik_news");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
     <link rel="stylesheet" href="css/halamanAdmin.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+<!-- navbar -->
     <nav>
-        <ul>
-            <li><a href="login.php" class="logo">
-                <img src="assets/img/login.jpg" alt="">
-                <span class="nav-items">Login</span>
-            </a></li>
-            <li><a href="#"><i class='bx bxs-dashboard'></i><span class="nav-items">Dashboard</span></a></li>
-            <li><a href="profile.php"><i class='bx bxs-user'></i><span class="nav-items">Profile</span></a></li>
-            <li><a href="#"><i class='bx bx-bar-chart-alt'></i><span class="nav-items">Data</span></a></li>
-            <li><a href="#"><i class='bx bxs-cog'></i><span class="nav-items">Setting</span></a></li>
-            <li><a href="login.php" class="keluar"><i class='bx bx-log-in'></i><span class="nav-items">Log out</span></a></li>
+        <div class="logo">
+            <img src="assets/img/logo.png" alt="">
+        </div>
+        <ul id="menu-list" class="hidden">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#achievement">Achievement</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    <!-- <h1>Daftar Berita Musik</h1>
+<!-- tabel -->
+    <div class="tabel-data">
+        <h3>Daftar Berita</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <a href="tambahData.php">Tambah Berita</a>
-    <br>
-    <br>
-    <table border="1" cellpadding="10" cellspacing="0">
-        <tr>
-            <th>No.</th>
-            <th>Judul</th>
-            <th>Jurnalis</th>
-            <th>Hari & Tanggal</th>
-            <th>Konten</th>
-            <th>Gambar</th>
-            <th>Aksi</th>
-        </tr>
-
-        <?php $i = 1;?>
-        <?php foreach($berita_musik as $row) : ?>
-        <tr>
-            <td><?php echo $i; ?></td>
-            <td><?php echo $row["judul_news"]; ?></td>
-            <td><?php echo $row["jurnalis"]; ?></td>
-            <td><?php echo $row["hari_tanggal"]; ?></td>
-            <td><?php echo $row["konten_news"]; ?></td>
-            <td><img src="img/<?php echo $row["gambar"]; ?>" width="100"></td>
-            <td>
-                <a href="">ubah</a> |
-                <a href="">hapus</a>
-            </td>
-        </tr>
-        <?php $i++; ?>
-        <?php endforeach;?>
-    </table>
-
-    <div class="pagination">
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">...</a>
-        </div> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

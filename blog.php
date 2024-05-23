@@ -22,34 +22,83 @@
             <a href="login.php"><i class="bi bi-person-circle"></i></a>
         </div>
     </header>
+    <!-- carousel -->
+    <section>
+        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/jkt48langitbiru.jpeg" alt="" height="575px" width="100%">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1>Example headline.</h1>
+                            <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/jkt48magichour.jpeg" alt="" height="575px" width="100%">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Another example headline.</h1>
+                            <p>Some representative placeholder content for the second slide of the carousel.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/jkt48magichour.jpeg" alt="" height="575px" width="100%">
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <h1>One more for good measure.</h1>
+                            <p>Some representative placeholder content for the third slide of this carousel.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
     <!-- blog -->
     <section class="blog1">
-    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis" style="background-image: url(img/jkt48langitbiru.jpeg)";>
         <div class="col-lg-6 px-0">
             <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
-            <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-            <p class="lead mb-0"><a href="#" class="text-body-emphasis fw-bold">Continue reading...</a></p>
+            <p class="lead mb-0"><a href="#" class="text-body-emphasis fw-bold">Baca Selengkapnya</a></p>
         </div>
     </div>
     <div class="row mb-2 sub-blog">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col-md-6">
+                    <img src="img/jkt48langitbiru.jpeg" class="img-fluid rounded-start" alt="...">
+                </div>
                 <div class="col p-4 d-flex flex-column position-static">
                     <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
-                    <h3 class="mb-0">Featured post</h3>
+                    <h5 class="mb-0">Judul Berita</h5>
                     <div class="mb-1 text-body-secondary">Nov 12</div>
                         <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">Continue reading</a>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                        <img src="" alt="">
+                        <a href="#" class="btn btn-primary">Baca Selangkapnya</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="position-sticky" style="top: 32px;">
                     <div>
-                        <h4 class="fst-italic">Recent posts</h4>
+                        <h4>Berita Terpopuler</h4>
                         <ul class="list-unstyled">
                             <li>
                                 <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
