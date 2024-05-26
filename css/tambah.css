@@ -36,9 +36,9 @@ label {
     margin-bottom: 10px;
 }
 
-input[name="judul"],
+input[name="judul_news"],
 input[name="jurnalis"],
-input[name="hariTanggal"],
+input[name="hari_tanggal"],
 input[name="gambar"] {
     width: 99%;
     padding: 5px;
@@ -47,7 +47,7 @@ input[name="gambar"] {
     font-size: 16px;
 }
 
-textarea [name="konten"]{
+textarea [name="konten_news"]{
     resize: none;
     width: 99%;
     padding: 5px;

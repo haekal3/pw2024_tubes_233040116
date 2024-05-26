@@ -1,15 +1,21 @@
 <?php
 require 'functions.php';
 
-//cek apakah tombol Upload sudah di tekan
+//ambil id dari url
+$id = $_GET['id_musik'];
+
+// query berita berdasarkan id
+$msk = query("SELECT * FROM musik_news, penyanyi WHERE (musik_news.id_musik = penyanyi.id_musik)");
+
+//cek apakah tombol Update sudah di tekan
 if(isset($_POST['submit'])) {
-    if(insert($_POST) > 0) {
+    if(update($_POST) > 0) {
         echo "<script>
-        alert('data berhasil ditambahkan');
+        alert('data berhasil diubah');
         document.location.href = 'index.php';
         </script>";
     } else {
-        echo "data gagal ditambahkan";
+        echo "data gagal diubah";
     }
 }
 ?>
@@ -19,10 +25,10 @@ if(isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data</title>
+    <title>Update Data</title>
 </head>
 <body>
-    <h1>Tambah Data Berita</h1>
+    <h1>Upadate Data Berita</h1>
     <form action="" method="POST">
         <ul>
             <li>
@@ -51,7 +57,7 @@ if(isset($_POST['submit'])) {
                 </label>
             </li>
             <li>
-                <button type="submit" name="submit">Upload</button>
+                <button type="submit" name="submit">Update</button>
             </li>
         </ul>
     </form>

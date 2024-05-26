@@ -1,22 +1,14 @@
-*{
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-size: 16px;
-    margin: 0;
-    background: white;
+.tabel {
+    padding: 10px;
 }
 
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    background: #14274E;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
+.judul {
+    padding: 10px;
+    text-align: center;
 }
