@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['login'])) {
+if( !isset($_SESSION['login']) ) {
     header("Location: login.php");
-    exit;
+    exit();
 }
 
 require 'functions.php';
@@ -28,6 +28,9 @@ $musik = query("SELECT * FROM musik_news, penyanyi WHERE musik_news.id_musik = p
     <div class="tabel">
         <div class="judul">
             <h3>Daftar Berita</h3>
+        </div>
+        <div class="d-grid col-1 my-2 mx-5">
+            <a href="logout.php" class="btn btn-danger">Logout</a>
         </div>
         <div class="d-grid col-1 my-2 mx-5">
             <a href="tambahData.php" class="btn btn-primary">Insert +</a>
