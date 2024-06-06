@@ -12,83 +12,40 @@ if ( isset($_POST['register']) ) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <style>
-        label {
-            display: block;
-        }
-    </style>
+    <!-- css -->
+    <link rel="stylesheet" href="css/registerr.css">
 </head>
 <body>
-    <h1>Register</h1>
-    <form action="" method="POST">
-        <ul>
-            <li>
-                <label for="username">Username: </label>
-                <input type="text" name="username" id="username">
-            </li>
-            <li>
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email">
-            </li>
-            <li>
-                <label for="password">Password: </label>
-                <input type="password" name="password" id="password">
-            </li>
-            <li>
-                <label for="password2">Konfirmasi Password: </label>
-                <input type="password" name="password2" id="password2">
-            </li>
-            <li>
-                <button type="submit" name="register">Register</button>
-            </li>
-        </ul>
-    </form>
+    <div class="register-box">
+        <div class="register-header">
+            <header>Register</header>
+        </div>
+        <form action="" method="POST">
+            <div class="input-box">
+                <input name="username" type="text" class="input-field" placeholder="Username" required>
+            </div>
+            <div class="input-box">
+                <input name="email" type="email" class="input-field" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <input name="password" type="password" class="input-field" placeholder="Password" required>
+            </div>
+            <div class="input-box">
+                <input name="password2" type="password" class="input-field" placeholder="Konfirmasi Password" required>
+            </div>
+            <div class="input-submit">
+                <button class="submit-btn" id="submit" name="register">Register</button>
+            </div>
+            <div class="login">
+                <p>You have account? <a href="login.php">Login</a></p>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="id">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Form Register</title>
-        <link rel="stylesheet" href="css/register.css"/>
-    </head>
-    <body>
-        <div class="container">
-            <div class="register-container">
-                <h1>Register</h1>
-                <from action="#">
-                    <div class="input-group">
-                        <label for="username">Username: </label>
-                        <input type="username" id="username" name="username" required/>
-                    </div>
-                    <div class="input-group">
-                        <label for="email">Email: </label>
-                        <input type="email" id="email" name="email" required/>
-                    </div>
-                    <div class="input-group">
-                        <label for="password">Password: </label>
-                        <input type="password" id="password" name="password" required/>
-                    </div>
-                    <div class="input-group">
-                        <button name="submit" type="submit">Login</button>
-                    </div>
-                    </from>
-                    <div class="login">
-                        <p>Already have an account?</p>
-                        <h4><a href="login.php">Login</a></h4>
-                    </div>
-                </div>
-            </div>
-    </body>
-</html> -->

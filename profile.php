@@ -1,24 +1,40 @@
+<?php
+session_start();
+require 'functions.php';
+
+// cek apakah pengguna sudah login
+if(!isset($_SESSION['login'])) {
+    header('Location: login.php');
+    exit;
+}
+
+// ambil username dari sesi
+$username = $_SESSION['username'];
+
+//pengguna dari database
+$result = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username'");
+$user = mysqli_fetch_assoc($result);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="css/profile.css">
+    <!-- css -->
+    <link rel="stylesheet" href="css/profilee.css">
 </head>
 <body>
-    <div class="container">
-        <div class="profile-container">
-            <h1>Profile</h1>
-            <img src="" alt="">
-            <h2>Username</h2>
-            <h4>Email</h4>
-            <div class="input-group">
-                <button name="submit" type="submit" class="update">Update Profile</button>
-            </div>
-            <div>
-                <button name="submit" type="submit" class="logout">Log Out</button>
-            </div>
+    <div class="card">
+        <h1>Selamat Datang</h1>
+        <img src="assets/img/login.png" alt="" class="img">
+        <h2 class="username"><?=($username); ?></h2>
+        <p class="username"><?=($user['email']); ?></p>
+        <div class="button">
+            <button><a href="index.php">Kembali ke Halaman</a></button>
+            <button><a href="logout.php">Logout</a></button>
         </div>
     </div>
 </body>

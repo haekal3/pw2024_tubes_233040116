@@ -1,7 +1,12 @@
 <?php
 session_start();
 
-if(isset($_SESSION['login'])) {
+if( !isset($_SESSION['login']) ) {
+    header("Location: login.php");
+    exit();
+}
+
+if( !isset($_SESSION['username']) || $_SESSION['role'] !='admin' ) {
     header("Location: login.php");
     exit();
 }
@@ -16,7 +21,10 @@ if(isset($_POST['submit'])) {
         document.location.href = 'index.php';
         </script>";
     } else {
-        echo "data gagal ditambahkan";
+        echo "<script>
+        alert('data gagal ditambahkan');
+        document.location.href = 'tambahData.php';
+        </script>";
     }
 }
 ?>
@@ -27,87 +35,46 @@ if(isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/tambah.css">
 </head>
 <body>
-    <h1>Tambah Data Berita</h1>
-    <form action="" method="POST">
-        <ul>
-            <li>
-                <label for="judul_news">Judul:
-                    <input type="text" name="judul_news" required>
-                </label>
-            </li>
-            <li>
-                <label for="jurnalis">Jurnalis:
-                    <input type="text" name="jurnalis" required>
-                </label>
-            </li>
-            <li>
-                <label for="hari_tanggal">Hari & tanggal: 
-                    <input type="text" name="hari_tanggal" required>
-                </label>
-            </li>
-            <li>
-                <label for="konten_news">Konten:
-                    <input type="text" name="konten_news" required>
-                </label>
-            </li>
-            <li>
-                <label for="gambar">Gambar:
-                    <input type="text" name="gambar"required>
-                </label>
-            </li>
-            <li>
-                <button type="submit" name="submit">Upload</button>
-            </li>
-        </ul>
-    </form>
-</body>
-</html>
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="id">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Form Tambah Data</title>
-        <link rel="stylesheet" href="css/tambah.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="tambah-container">
-                <h1>Tambah Data</h1>
-                <from action="" method="POST">
-                    <div class="input-group">
-                        <label for="judul_news">Judul Berita: </label>
-                        <input type="text" id="judul_news" name="judul_news" required/>
-                    </div>
-                    <div class="input-group">
-                        <label for="jurnalis">Jurnalis: </label>
-                        <input type="text" id="jurnalis" name="jurnalis" required/>
-                    </div>
-                    <div class="input-group">
-                        <label for="hari_tanggal">Hari & Tanggal: </label>
-                        <input type="text" id="hari_tanggal" name="hari_tanggal" required/>
-                    </div>
-                    <div class="input-group">
-                        <label for="konten_news">Konten Berita: </label>
-                        <textarea type="text" id="konten_news" name="konten_news" required></textarea>
-                    </div>
-                    <div class="input-group">
-                        <label for="gambar">Gambar: </label>
-                        <input type="text" id="gambar" name="gambar" required/>
-                    </div>
-                    <div class="input-group">
-                        <button name="submit" type="submit">Upload</button>
-                    </div>
-                </from>
+    <div class="card">
+        <form action="" method="POST" enctype="multipart/form-data">
+        <h1>Tambah Data Berita</h1>
+            <div>
+                <div class="input-box">
+                    <input type="text" name="judul_news" placeholder="judul" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="jurnalis" placeholder="jurnalis" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="hari_tanggal" placeholder="hari&tanggal" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="konten_news" placeholder="konten" required>
+                </div>
+                <div class="input-box">
+                    <input type="file" name="gambar" placeholder="gambar">
+                </div>
+                <div class="input-box">
+                    <label for="genre">Pilih Genre</label>
+                    <select name="id_penyanyi">
+                        <option>---</option>
+                        <?php
+                        $query = mysqli_query($koneksi, "SELECT * FROM penyanyi") or die (mysqli_error($koneksi)); 
+                        while($data = mysqli_fetch_array($query)) {
+                            echo "<option value=$data[id_penyanyi]>$data[genre]</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="button">
+                    <button class="btn" id="submit" name="submit">Upload</button>
                 </div>
             </div>
-        </div>
-    </body>
-</html> -->
+        </form>
+    </div>
+</body>
+</html>
