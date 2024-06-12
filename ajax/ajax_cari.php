@@ -11,7 +11,6 @@ $musik = cari($_GET['formControl']);
                 <th>Hari/Tanggal</th>
                 <th>Konten</th>
                 <th>Gambar</th>
-                <th>Penyanyi</th>
                 <th>Genre</th>
                 <th>Aksi</th>
             </tr>
@@ -30,7 +29,6 @@ $musik = cari($_GET['formControl']);
                 <td><?= $msk ['hari_tanggal']; ?></td>
                 <td><?= $msk ['konten_news']; ?></td>
                 <td><img src="img/<?= $msk ['gambar']; ?>" alt="" width="150px"></td>
-                <td><?= $msk ['nama']; ?></td>
                 <td><?= $msk ['genre']; ?></td>
                 <td class="d-grid gap-2 d-md-flex">
                     <a href="update.php?id_musik=<? $msk['id_musik, id_penyanyi'];?>" class="btn btn-primary btn-sm ">Update</a>

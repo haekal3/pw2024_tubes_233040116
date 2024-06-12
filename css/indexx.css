@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body {
+    font-size: 16px;
+    margin: 0;
+    background: white;
+}
+
+nav {
+    background-color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    justify-content: space-around;
+    box-shadow: 0px 3px 10px rgba(80,119,242,0.3);
+}
+
+.logo {
+    font-size: 35px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: white;
+    width: 400px;
+    border-radius: 35px;
+    overflow: hidden;
+    border: 1.5px solid black;
+}
+
+.search input {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.search button {
+    width: 100px;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+}
+
+.login a i {
+    font-size: 30px;
+    color: black;
+}
+/* blog */
+.blog1 {
+    padding: 30px;
+    margin: auto;
+}
+
+.blog2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blog3 {
+    padding: 30px;
+    margin: auto;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+}
+
+.card-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* footer */
+footer {
+    margin: 25px;
+    padding: 25px;
+}

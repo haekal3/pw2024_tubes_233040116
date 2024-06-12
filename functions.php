@@ -17,7 +17,7 @@ function query($query) {
 function cari($keyword) {
     global $koneksi;
 
-    $query = "SELECT * FROM musik_news, penyanyi WHERE judul_news LIKE '%$keyword%' OR genre LIKE '%$keyword%'";
+    $query = "SELECT * FROM musik_news WHERE judul_news LIKE '%$keyword%'";
 
     $result = mysqli_query($koneksi, $query);
     $rows = [];

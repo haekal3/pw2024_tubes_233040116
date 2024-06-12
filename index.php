@@ -7,7 +7,12 @@ if( !isset($_SESSION['login']) ) {
 }
 
 require 'functions.php';
+$musik = query("SELECT * FROM musik_news");
 
+// ketika tompol cari di klik
+if(isset($_POST['cari'])){
+    $musik = cari($_POST['keyword']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +22,7 @@ require 'functions.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
     <!-- css -->
-    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/indexx.css">
     <!-- bootstrap -->    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -26,10 +31,10 @@ require 'functions.php';
     <!-- navbar -->
     <nav>
         <h1 class="logo">NEWS</h1>
-        <div class="search">
-            <input type="text" placeholder="type to search">
-            <i class="bi bi-search"></i>
-        </div>
+        <form action="" method="post" class="search">
+            <input type="text" name="keyword" placeholder="type to search" autocomplete="off">
+            <button type="submit" name="cari"><i class="bi bi-search"></i></button>
+        </form>
         <div class="dropdown text-end">
             <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="assets/img/login.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -56,7 +61,6 @@ require 'functions.php';
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <h1>Iqbaal Ramadhan kembali ke industri musik dengan alias BAALE</h1>
-                            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +69,6 @@ require 'functions.php';
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Grup musik Indonesia ramaikan festival SXSW di Texas AS</h1>
-                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
                         </div>
                     </div>
                 </div>
@@ -74,7 +77,6 @@ require 'functions.php';
                     <div class="container">
                     <div class="carousel-caption">
                             <h1>TWS rilis video musik terbaru untuk lagu "BFF"</h1>
-                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
                         </div>
                     </div>
                 </div>
@@ -90,104 +92,57 @@ require 'functions.php';
         </div>
     </section>
     <!-- blog -->
-    <section class="blog1">
-    <div class="p-4 p-md-5 mb-4 rounded text-white" style="background-image: url(assets/img/Gambar.jpg)";>
-        <div class="col-lg-6 px-0">
-            <h1 class="display-6 fst-italic">MENELISIK MEDIA DAN JURNALIS MUSIK, AKTOR UTAMA BERITA MUSIK</h1>
+    <div class="blog1">
+        <div class="p-4 p-md-5 mb-4 rounded text-white" style="background-image: url(assets/img/Gambar.jpg);">
+            <div class="col-lg-6 px-0">
+                <h1 class="display-6 fst-italic">MENELISIK MEDIA DAN JURNALIS MUSIK, AKTOR UTAMA BERITA MUSIK</h1>
+            </div>
         </div>
-    </div>
-    <div class="row mb-2 sub-blog">
-        <div class="col-md-8">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col-md-6">
-                    <img src="" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
-                    <h5 class="mb-0">Judul Berita</h5>
-                    <div class="mb-1 text-body-secondary">Nov 12</div>
-                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Baca Selangkapnya</a>
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <a href="" class="link-underline link-underline-opacity-0"><h3 class="mb-2 text-black">Lagu Terbaru Sheesh Milik Babymonster Sukses Tembus 2 Chart Billboard</h3></a>
+                        <small class="mb-2"><i>Sabtu, 08 Juni 2024</i></small>
+                        <p class="card-text mb-auto">Grup idola K-Pop Babymonster, mampu menarik perhatian saat merilis single terbarunya berjudul Sheesh pada 31 Maret 2024. Bahkan, lagu tersebut sukses memasuki dua tangga musik di Billboard.</p>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="assets/img/gambar9.jpg" alt="" width="200" height="260">
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="position-sticky" style="top: 32px;">
-                    <div>
-                        <h4>Berita Terpopuler</h4>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-                                <img src="" alt="">
-                                <div class="col-lg-8">
-                                    <h6 class="mb-0">Example blog post title</h6>
-                                    <small class="text-body-secondary">January 15, 2024</small>
-                                </div></a>
-                            </li>
-                            <li>
-                                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-                                <img src="" alt="">
-                                <div class="col-lg-8">
-                                    <h6 class="mb-0">This is another blog post title</h6>
-                                    <small class="text-body-secondary">January 14, 2024</small>
-                                </div></a>
-                            </li>
-                            <li>
-                                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-                                <img src="" alt="">
-                                <div class="col-lg-8">
-                                    <h6 class="mb-0">This is another blog post title</h6>
-                                    <small class="text-body-secondary">January 14, 2024</small>
-                                </div></a>
-                            </li>
-                        </ul>
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <a href="" class="link-underline link-underline-opacity-0"><h3 class="mb-2 text-black">6 Lagu JKT48 tentang Seseorang yang Mencintai Secara Ugal-Ugalan</h3></a>
+                        <small class="mb-2"><i>Minggu, 09 Juni 2024</i></small>
+                        <p class="card-text mb-auto">JKT48 tentunya memiliki lagu yang berkaitan dengan fenomena tersebut. Simak rekomendasi 6 Lagu JKT48 untuk kamu yang ugal-ugalan dalam mencintai seseorang.</p>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="assets/img/gambar10.jpg" alt="" width="200" height="260">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </section>
     <!-- card -->
-    <section class="blog2">
-        <div class="card">
-            <img src="" alt="">
-            <h3>judul</h3>
-            <div class="publish">
-                <p>jurnalis,</p>
-                <p>tanggal</p>
+    <div class="blog3">
+        <div class="content">
+            <?php foreach($musik as $msk):?>
+            <div class="card" style="width: 18rem; max-height: 500px;">
+                <img src="img/<?= $msk ['gambar']; ?>" class="card-img-top" alt="..." width="100%" height="200px">
+                <div class="card-body">
+                    <h5 class="card-title"><?= $msk ['judul_news']; ?></h5>
+                    <p class="card-text"><?= $msk ['konten_news']; ?></p>
+                    <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+                </div>
             </div>
-            <div class="konten">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At quod ea ab harum pariatur distinctio quas numquam cum fugiat nemo debitis soluta obcaecati illum, quibusdam sapiente nulla provident dignissimos porro?</p>
-            </div>
+            <?php endforeach;?>
         </div>
-        <div class="card">
-            <img src="" alt="">
-            <h3>judul</h3>
-            <div class="publish">
-                <p>jurnalis,</p>
-                <p>tanggal</p>
-            </div>
-            <div class="konten">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At quod ea ab harum pariatur distinctio quas numquam cum fugiat nemo debitis soluta obcaecati illum, quibusdam sapiente nulla provident dignissimos porro?</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="" alt="">
-            <h3>judul</h3>
-            <div class="publish">
-                <p>jurnalis,</p>
-                <p>tanggal</p>
-            </div>
-            <div class="konten">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At quod ea ab harum pariatur distinctio quas numquam cum fugiat nemo debitis soluta obcaecati illum, quibusdam sapiente nulla provident dignissimos porro?</p>
-            </div>
-        </div>
-    </section>
-    <!-- blog 3 -->
-
+    </div>
     <!-- footer -->
     <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-body-secondary">&copy; 2024 Company, Inc</p>
+        <p class="col-md-4 mb-0 text-body-secondary">&copy; 2024 News</p>
         <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         </a>
