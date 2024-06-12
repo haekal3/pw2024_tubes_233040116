@@ -29,7 +29,7 @@ if(isset($_POST['ubah'])) {
     if(ubah($_POST) > 0) {
         echo "<script>
         alert('data berhasil diupdate');
-        document.location.href = 'index.php';
+        document.location.href = 'admin.php';
         </script>";
     } else {
         echo "<script>

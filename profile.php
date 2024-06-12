@@ -33,7 +33,7 @@ $user = mysqli_fetch_assoc($result);
         <h2 class="username"><?=($username); ?></h2>
         <p class="username"><?=($user['email']); ?></p>
         <div class="button">
-            <button><a href="index.php">Kembali ke Halaman</a></button>
+            <button><a href="admin.php">Kembali ke Halaman</a></button>
             <button><a href="logout.php">Logout</a></button>
         </div>
     </div>
